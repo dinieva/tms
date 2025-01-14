@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
-  imports: [NxWelcomeComponent, RouterModule],
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
+    imports: [RouterModule],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.scss',
 })
 export class AppComponent {
-  title = 'Test-Assignment';
+    constructor(private router: Router) {
+        const isMobile = window.innerWidth < 768;
+        this.router.navigate([isMobile ? 'mobile' : '']);
+    }
 }
