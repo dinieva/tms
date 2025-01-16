@@ -1,16 +1,24 @@
 @if(menuItems.length > 0){
 <nav>
     <ul>
-        @for(item of menuItems; track item){
+        @for(item of menuItems; track item.name){
         <li>
+            <img [src]="'/icons/' + item.icon" alt="{{ item.name }}" />
             <a
-                routerLink="item.path"
-                routerLinkActive="active"
+                [routerLink]="item.path"
+                routerLinkActive="active-route"
                 ariaCurrentWhenActive="page"
-                >{{ item.name }}</a
             >
+                {{ item.name }}</a
+            >
+            @if(item.name==="Проекты"){
+            <img src="/icons/Chevron.svg" alt="стрелка вниз" />
+            }
         </li>
+        <div class="divider"></div>
         }
     </ul>
 </nav>
+
+<router-outlet />
 }

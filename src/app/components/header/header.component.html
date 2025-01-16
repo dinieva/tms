@@ -1,1 +1,33 @@
-<app-menu />
+<div class="header">
+    <div class="left">
+        <app-menu />
+        <div class="btn">
+            <div class="btn__icon btn__icon--left"></div>
+            <span class="btn__text">Создать</span>
+            <div class="btn__icon btn__icon--right"></div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="time">
+            <img src="/icons/clock.svg" alt="clock" class="icon" />
+            <span class="time__current-time">{{ currentTime }}</span>
+        </div>
+        <div class="status">
+            <img src="/icons/status.svg" alt="status" class="icon" />
+            <span class="task">{{ taskMessage }}</span>
+        </div>
+        <button class="notification-button">
+            <img
+                src="/icons/message.svg"
+                alt="message-icon"
+                class="icon notification__icon"
+            />
+            <div class="notification-count">
+                <span class="notification-count__num">28</span>
+            </div>
+        </button>
+        <div class="avatar">
+            <img src="/avatar.png" alt="аватар" />
+        </div>
+    </div>
+</div>

@@ -4,5 +4,14 @@ import { MobileComponent } from './pages/mobile-component/mobile.component';
 
 export const routes: Routes = [
     { path: 'mobile', component: MobileComponent },
-    { path: '', component: DesktopComponent },
+    {
+        path: '',
+        component: DesktopComponent,
+        children: [
+            { path: 'projects', redirectTo: '/', pathMatch: 'full' },
+            { path: 'kanban', redirectTo: '/', pathMatch: 'full' },
+            { path: 'team', redirectTo: '/', pathMatch: 'full' },
+            { path: 'calendar', redirectTo: '/', pathMatch: 'full' },
+        ],
+    },
 ];

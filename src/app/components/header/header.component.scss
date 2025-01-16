@@ -1,0 +1,130 @@
+@use 'variables';
+
+.header {
+    height: 59px;
+    padding-top: 16px;
+    padding-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+.left {
+    display: flex;
+    gap: 24px;
+}
+.right {
+    display: flex;
+    gap: 12px;
+}
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    width: 118px;
+    background: variables.$bg_grayDark;
+    border: 1px solid variables.$active_blue;
+    border-radius: 4px;
+    opacity: 100%;
+    padding: 0 12px;
+    &__text {
+        font-family: 'Inter', sans-serif;
+        color: variables.$active_blue;
+        font-size: 13px;
+        line-height: 18px;
+    }
+    &__icon {
+        width: 16px;
+        height: 16px;
+        &--left {
+            background: url('/icons/plus.svg') center center no-repeat;
+        }
+        &--right {
+            background: url('/icons/Chevron.svg') center center no-repeat;
+        }
+    }
+}
+.time {
+    height: 30px;
+    background-color: variables.$active_blue;
+    border-radius: 6px;
+    display: flex;
+    gap: 4px;
+    padding: 4px 6px;
+    justify-content: center;
+    align-items: center;
+    filter: drop-shadow(0 1px 4px rgba(50, 77, 89, 0.07))
+        drop-shadow(0 5px 10px rgba(51, 75, 85, 0.15));
+    &__current-time {
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 500;
+        color: #fff;
+    }
+}
+.icon {
+    width: 16px;
+    height: 16px;
+}
+.status {
+    max-width: 368px;
+    width: fit-content;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: variables.$bg_light;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.07));
+}
+.task {
+    width: 332px;
+    font-family: 'Inter', sans-serif;
+    color: variables.$text-text;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.notification-button {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    border: 0.5px solid rgba(0, 0, 0, 0.04);
+    background-color: variables.$bg_light;
+    filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.07));
+}
+.notification__icon {
+    position: absolute;
+    top: 8px;
+    left: 6px;
+    max-width: 18px;
+    height: 17px;
+}
+.notification-count {
+    position: absolute;
+    top: -6px;
+    left: 11px;
+    padding: 2px 6px;
+    border-radius: 16px;
+    background-color: variables.$red;
+    text-align: center;
+    &__num {
+        color: variables.$white;
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 500;
+    }
+}
+.avatar {
+    max-width: 30px;
+    max-height: 30px;
+}
