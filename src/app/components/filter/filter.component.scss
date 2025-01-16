@@ -1,0 +1,55 @@
+@use 'variables';
+.option-category {
+    display: flex;
+    gap: 2px;
+    min-width: 132px;
+    height: 32px;
+    border-radius: 4px;
+    padding: 0 12px;
+    background-color: variables.$bg_light;
+    border: 1px solid #efefef;
+    color: variables.$text-text;
+    align-items: center;
+    & span {
+        font-family: 'inter', sans-serif;
+        color: variables.$text-text;
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 400;
+    }
+}
+span {
+    font-family: 'inter', sans-serif;
+    font-size: 13px;
+    line-height: 18px;
+    font-weight: 400;
+}
+.options {
+    width: 228px;
+    min-width: 220px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 8px 12px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    color: variables.$text-primary;
+    background-color: variables.$bg_light;
+    filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.05))
+        drop-shadow(0 21px 26.3px rgba(0, 0, 0, 0.1));
+}
+.option {
+    display: flex;
+    gap: 8px;
+    border-radius: 4px;
+}
+.empty {
+    width: 16px;
+    height: 16px;
+}
+.selected {
+    background-color: variables.$bg_blue;
+    color: variables.$active_blue;
+    border: 1px solid variables.$active_blue;
+}
