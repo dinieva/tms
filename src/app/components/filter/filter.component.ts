@@ -15,12 +15,16 @@ export class FilterComponent {
     selectedOption:
         | { iconPath: string; title: string; value: string }
         | undefined = undefined;
-    isDropdownOpen = false;
+    isDropdownOpen: boolean = false;
 
-    toggleDropdown() {
+    toggleDropdown(): void {
         this.isDropdownOpen = !this.isDropdownOpen;
     }
-    selectOption(option: { iconPath: string; title: string; value: string }) {
+    selectOption(option: {
+        iconPath: string;
+        title: string;
+        value: string;
+    }): void {
         this.selectedOption = option;
         this.isDropdownOpen = false;
     }
