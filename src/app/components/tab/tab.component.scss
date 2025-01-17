@@ -1,0 +1,22 @@
+@use 'variables';
+.tab {
+    width: 148px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 0 8px;
+    color: rgba(128, 128, 128, 0.7);
+    cursor: pointer;
+    &__title {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: 400;
+    }
+}
+.active-tab {
+    color: variables.$active_blue;
+    border-bottom: 1px solid variables.$active_blue;
+}

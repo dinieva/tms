@@ -1,0 +1,8 @@
+<div
+    class="tab"
+    [ngClass]="{ 'active-tab': isActive }"
+    (click)="handleClick($event)"
+>
+    <span class="tab__title">{{ title }}</span>
+    <span class="tab__count">0</span>
+</div>

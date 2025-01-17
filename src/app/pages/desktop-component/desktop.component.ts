@@ -4,6 +4,8 @@ import { HeaderComponent } from 'src/app/components/header/header.component';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { ShowDateComponent } from 'src/app/components/show-date/show-date.component';
 import { FilterBlockComponent } from 'src/app/components/filter-block/filter-block.component';
+import { ContentComponent } from 'src/app/components/content/content.component';
+
 @Component({
     selector: 'app-desktop',
     imports: [
@@ -13,6 +15,7 @@ import { FilterBlockComponent } from 'src/app/components/filter-block/filter-blo
         HeaderComponent,
         ShowDateComponent,
         FilterBlockComponent,
+        ContentComponent,
     ],
     templateUrl: './desktop.component.html',
     styleUrl: './desktop.component.scss',

@@ -1,0 +1,10 @@
+<div class="tab-container">
+    @for(tab of tabs; track tab; let idx = $index){
+    <app-tab
+        [title]="tab"
+        [activeTabIndex]="activeTabIndex"
+        [idx]="idx"
+        (click)="setActiveTab(idx)"
+    />
+    }
+</div>
