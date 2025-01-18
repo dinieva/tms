@@ -1,0 +1,18 @@
+hr {
+    width: 104px;
+    height: 2px;
+    border-radius: 20px;
+    border: none;
+}
+.completed {
+    background-color: #1bba69;
+}
+.in-progress {
+    background-color: #16a4e3;
+}
+.paused {
+    background-color: #7e7e7e;
+}
+.pending {
+    background-color: #e0e0e0;
+}

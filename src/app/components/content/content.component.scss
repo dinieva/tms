@@ -1,0 +1,19 @@
+.content {
+    display: flex;
+    overflow: hidden;
+    &__columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 32px;
+    }
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}

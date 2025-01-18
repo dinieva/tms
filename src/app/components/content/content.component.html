@@ -1,0 +1,34 @@
+<div class="content">
+    <div class="content__columns">
+        <div class="content__column content__column--left">
+            <app-tab-block />
+            <div class="block">
+                <app-accordion
+                    [accordionTitle]="'Мои'"
+                    [accordionQuantity]="userTasks.length"
+                    [tasks]="userTasks"
+                />
+                <app-accordion
+                    [accordionTitle]="'Не назначенные'"
+                    [accordionQuantity]="tasksWithoutAssignee.length"
+                    [tasks]="tasksWithoutAssignee"
+                />
+            </div>
+        </div>
+
+        <div class="content__column content__column--right">
+            <div class="block">
+                <app-accordion
+                    [accordionTitle]="'В работе'"
+                    [accordionQuantity]="tasksInProgress.length"
+                    [tasks]="tasksInProgress"
+                />
+                <app-accordion
+                    [accordionTitle]="'На паузе'"
+                    [accordionQuantity]="tasksInPause.length"
+                    [tasks]="tasksInPause"
+                />
+            </div>
+        </div>
+    </div>
+</div>

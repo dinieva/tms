@@ -1,0 +1,56 @@
+@use 'variables';
+details > summary::marker {
+    display: none;
+}
+details summary::marker {
+    display: none;
+}
+details > summary::-webkit-details-marker {
+    display: none;
+}
+details summary::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background-image: url('/icons/Chevron.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 8px;
+}
+
+details[open] summary::before {
+    background-image: url('/icons/Chevron.svg');
+}
+summary {
+    display: flex;
+    align-items: center;
+}
+span {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: variables.$text-text;
+}
+.quantity {
+    margin-left: 8px;
+}
+.accordion__block {
+    max-height: 751px;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 12px;
+    border: 1px solid rgba(0, 0, 0, 4%);
+    border-radius: 8px;
+    background-color: variables.$bg_blocks;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+}
