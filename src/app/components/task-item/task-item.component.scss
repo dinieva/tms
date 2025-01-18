@@ -1,0 +1,99 @@
+@use 'variables';
+.task {
+    padding: 12px;
+    border-radius: 8px;
+    background-color: variables.$bg_light;
+    border: 1px solid rgba(0, 0, 0, 4%);
+    filter: drop-shadow(0 3px 10px rgba(38, 58, 91, 0.5));
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        &-key {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 21px;
+            font-weight: 400;
+            color: variables.$text-secondary;
+        }
+    }
+    &__icon-wrapper {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &__progress-bar {
+        display: flex;
+        gap: 6px;
+        margin-top: 20px;
+    }
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 12px;
+    }
+    &__executor {
+        display: flex;
+        color: variables.$text-secondary;
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 400;
+        &::before {
+            content: '';
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-image: url('/icons/statusTask.svg');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 12px;
+        }
+        &-avatar {
+            margin-right: 4px;
+        }
+    }
+    &__time {
+        font-family: 'Inter', sans-serif;
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 400;
+        color: variables.$text-service;
+        margin-left: 3px;
+    }
+}
+.task__btns-block {
+    display: flex;
+    gap: 12px;
+    background-color: white;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    z-index: 1000;
+}
+.blocked {
+    background-color: variables.$blocked;
+}
+.critical {
+    background-color: variables.$critical;
+}
+.major {
+    background-color: variables.$major;
+}
+.minor {
+    background-color: variables.$minor;
+}
+.trivial {
+    background-color: variables.$trivial;
+}
+.green {
+    background-color: #52a7ac;
+}
+.left {
+    display: flex;
+    gap: 10px;
+}

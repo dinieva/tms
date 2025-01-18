@@ -1,0 +1,13 @@
+<details open>
+    <summary>
+        <span>{{ accordionTitle }}:</span>
+        @if(accordionQuantity > 1){
+        <span class="quantity">{{ accordionQuantity }}</span>
+        }
+    </summary>
+    <div class="accordion__block">
+        @if(tasks){ @for(task of tasks; track task.key){
+        <app-task-item [task]="task" />
+        }@empty { Список задач пуст } }
+    </div>
+</details>

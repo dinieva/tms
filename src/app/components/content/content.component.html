@@ -1,25 +1,34 @@
 <div class="content">
     <div class="content__columns">
-        <div class="content__column content__column--first">
+        <div class="content__column content__column--left">
             <app-tab-block />
-            <div class="block block--my">
-                <div class="block__header">
-                    <img
-                        src="/icons/Chevron.svg"
-                        alt="icon"
-                        width="16px"
-                        height="16px"
-                    />
-                    <h4>Мои</h4>
-                </div>
-                <div class="block__content"></div>
+            <div class="block">
+                <app-accordion
+                    [accordionTitle]="'Мои'"
+                    [accordionQuantity]="userTasks.length"
+                    [tasks]="userTasks"
+                />
+                <app-accordion
+                    [accordionTitle]="'Не назначенные'"
+                    [accordionQuantity]="tasksWithoutAssignee.length"
+                    [tasks]="tasksWithoutAssignee"
+                />
             </div>
-            <div class="block block--not-assigned"></div>
         </div>
 
-        <div class="content__column content__column--second">
-            <div class="block block--in-progress"></div>
-            <div class="block block--pause"></div>
+        <div class="content__column content__column--right">
+            <div class="block">
+                <app-accordion
+                    [accordionTitle]="'В работе'"
+                    [accordionQuantity]="tasksInProgress.length"
+                    [tasks]="tasksInProgress"
+                />
+                <app-accordion
+                    [accordionTitle]="'На паузе'"
+                    [accordionQuantity]="tasksInPause.length"
+                    [tasks]="tasksInPause"
+                />
+            </div>
         </div>
     </div>
 </div>
