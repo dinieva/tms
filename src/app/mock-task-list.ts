@@ -8,6 +8,13 @@ export const userProfile = {
 export const TASKS: ITask[] = [
     {
         key: 'TR-321',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: {
             name: 'Вильгельмина',
@@ -17,7 +24,8 @@ export const TASKS: ITask[] = [
         content: 'Разработка нового компонента для отображения графиков',
         category: 'develop',
         iconBgColor: 'green',
-        time: '5ч',
+        spentTime: '',
+        plannedTime: '5ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -27,6 +35,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-322',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: {
             name: 'Вильгельмина',
@@ -36,7 +51,8 @@ export const TASKS: ITask[] = [
         content: 'Рефакторинг кода модуля авторизации',
         category: 'develop',
         iconBgColor: 'green',
-        time: '2ч',
+        spentTime: '',
+        plannedTime: '2ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -46,6 +62,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-121',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: {
             name: 'Вильгельмина',
@@ -55,7 +78,8 @@ export const TASKS: ITask[] = [
         content: 'Устранить проблемы с кроссбраузерной совместимостью',
         category: 'errors',
         iconBgColor: 'minor',
-        time: '',
+        spentTime: '',
+        plannedTime: '',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -65,6 +89,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-122',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: {
             name: 'Вильгельмина',
@@ -74,7 +105,8 @@ export const TASKS: ITask[] = [
         content: 'Ошибка валидации формы при пустом поле “номер телефона”',
         category: 'errors',
         iconBgColor: 'minor',
-        time: '',
+        spentTime: '',
+        plannedTime: '',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -84,6 +116,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-123',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: {
             name: 'Вильгельмина',
@@ -94,7 +133,8 @@ export const TASKS: ITask[] = [
             'Неверное поведение компонента “Главный экран”  при изменении размера окна',
         category: 'errors',
         iconBgColor: 'minor',
-        time: '5ч',
+        spentTime: '',
+        plannedTime: '5ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -104,6 +144,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-124',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: {
             name: 'Вильгельмина',
@@ -114,7 +161,8 @@ export const TASKS: ITask[] = [
             'Неверное поведение компонента “Главный экран”  при изменении размера окна',
         category: 'errors',
         iconBgColor: 'disabled',
-        time: '',
+        spentTime: '',
+        plannedTime: '',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -124,6 +172,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-125',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: {
             name: 'Вильгельмина',
@@ -134,7 +189,8 @@ export const TASKS: ITask[] = [
             'Неверное поведение компонента “Главный экран”  при изменении размера окна',
         category: 'errors',
         iconBgColor: 'critical',
-        time: '12ч',
+        spentTime: '',
+        plannedTime: '12ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -144,12 +200,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-126',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Отсутствует лоадер при загрузке списка вопросов',
         category: 'errors',
         iconBgColor: 'minor',
-        time: '12ч',
+        spentTime: '',
+        plannedTime: '12ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -159,12 +223,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-127',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Адаптация макетов под различные устройства',
         category: 'develop',
         iconBgColor: 'aqua',
-        time: '5ч',
+        spentTime: '',
+        plannedTime: '5ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -174,12 +246,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-128',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Создание многоуровневого выпадающего меню',
         category: 'develop',
         iconBgColor: 'green',
-        time: '1ч',
+        spentTime: '',
+        plannedTime: '1ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -189,12 +269,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-129',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Создание кастомного компонента для загрузки файлов',
         category: 'develop',
         iconBgColor: 'green',
-        time: '30 м',
+        spentTime: '',
+        plannedTime: '30 м',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -204,12 +292,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-130',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Подключение и настройка системы международных переводов',
         category: 'develop',
         iconBgColor: 'green',
-        time: '12ч',
+        spentTime: '',
+        plannedTime: '12ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -219,12 +315,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-133',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Интеграция с системой аутентификации через OAuth',
         category: 'develop',
         iconBgColor: 'green',
-        time: '',
+        spentTime: '',
+        plannedTime: '',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -234,12 +338,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-345',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Создание адаптивной версии страницы Профиль',
         category: 'develop',
         iconBgColor: 'green',
-        time: ' ',
+        spentTime: '',
+        plannedTime: ' ',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -249,12 +361,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-333',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Верстка страницы Отпуска и Больничные',
         category: 'develop',
         iconBgColor: 'green',
-        time: '24ч',
+        spentTime: '',
+        plannedTime: '24ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -264,12 +384,20 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-321',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'pending',
         assignee: undefined,
         content: 'Возможность брать больничные не админу',
         category: 'develop',
         iconBgColor: 'green',
-        time: '10ч',
+        spentTime: '',
+        plannedTime: '10ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -279,6 +407,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-323',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'in-progress',
         assignee: {
             name: 'Вильгельмина',
@@ -288,7 +423,8 @@ export const TASKS: ITask[] = [
         content: 'Разработка нового интерфейса для панели управления',
         category: 'develop',
         iconBgColor: 'green',
-        time: '8ч 53м',
+        spentTime: ' ',
+        plannedTime: '8ч 53м',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'completed' },
@@ -298,6 +434,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-401',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -307,7 +450,8 @@ export const TASKS: ITask[] = [
         content: 'Drag n drop доступен не админам',
         category: 'develop',
         iconBgColor: 'critical',
-        time: '1ч / 2ч',
+        spentTime: '1ч',
+        plannedTime: '2ч',
         stages: [
             { label: 'Этап 1', status: 'paused' },
             { label: 'Этап 2', status: 'pending' },
@@ -318,6 +462,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-47',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -328,7 +479,8 @@ export const TASKS: ITask[] = [
             'Не отображается дефолтная иконка, если пользователь при создании проекта не загрузил свою',
         category: 'errors',
         iconBgColor: 'trivial',
-        time: '1ч / 2ч',
+        spentTime: '1ч',
+        plannedTime: '2ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'paused' },
@@ -337,6 +489,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-31',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -346,7 +505,8 @@ export const TASKS: ITask[] = [
         content: 'Создание адаптивной версии главной страницы',
         category: 'errors',
         iconBgColor: 'dusty-blue',
-        time: '1ч / 4ч',
+        spentTime: '1ч',
+        plannedTime: ' 4ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -356,6 +516,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-33',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -365,7 +532,8 @@ export const TASKS: ITask[] = [
         content: 'Разработка и интеграция формы обратной связи',
         category: 'errors',
         iconBgColor: 'dusty-blue',
-        time: '25м / 1ч',
+        spentTime: '25м',
+        plannedTime: '1ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -375,6 +543,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-35',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -384,7 +559,8 @@ export const TASKS: ITask[] = [
         content: 'Улучшение производительности рендеринга страницы',
         category: 'develop',
         iconBgColor: 'green',
-        time: '5ч / 10ч',
+        spentTime: '5ч',
+        plannedTime: '10ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -394,6 +570,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-36',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -403,7 +586,8 @@ export const TASKS: ITask[] = [
         content: 'Рефакторинг CSS и SCSS для улучшения читаемости',
         category: 'develop',
         iconBgColor: 'green',
-        time: '50м / 1ч',
+        spentTime: '50м',
+        plannedTime: '1ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -413,6 +597,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-37',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -422,7 +613,8 @@ export const TASKS: ITask[] = [
         content: 'Разработка модального окна для подтверждения действий',
         category: 'develop',
         iconBgColor: 'green',
-        time: '3ч / 4ч',
+        spentTime: '3ч',
+        plannedTime: '4ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -432,6 +624,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-38',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -441,7 +640,8 @@ export const TASKS: ITask[] = [
         content: 'Интеграция анимаций при прокрутке страницы',
         category: 'develop',
         iconBgColor: 'green',
-        time: '2ч',
+        spentTime: '',
+        plannedTime: '2ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -451,6 +651,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-39',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -461,7 +668,8 @@ export const TASKS: ITask[] = [
             'Оптимизация загрузки изображений с использованием lazy loading',
         category: 'develop',
         iconBgColor: 'green',
-        time: '1ч / 6ч',
+        spentTime: '1ч',
+        plannedTime: '6ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -471,6 +679,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-41',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -480,7 +695,8 @@ export const TASKS: ITask[] = [
         content: 'Разработка компонента фильтрации данных',
         category: 'develop',
         iconBgColor: 'green',
-        time: '1ч / 7ч',
+        spentTime: '1ч',
+        plannedTime: '7ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -490,6 +706,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-45',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -499,7 +722,8 @@ export const TASKS: ITask[] = [
         content: 'Создание карточки товара с динамическим контентом',
         category: 'develop',
         iconBgColor: 'green',
-        time: '2ч',
+        spentTime: '',
+        plannedTime: '2ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -509,6 +733,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-48',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -518,7 +749,8 @@ export const TASKS: ITask[] = [
         content: 'Настройка и интеграция системы отображения уведомлений',
         category: 'develop',
         iconBgColor: 'green',
-        time: '45м',
+        spentTime: '',
+        plannedTime: '45м',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -528,6 +760,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-56',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -537,7 +776,8 @@ export const TASKS: ITask[] = [
         content: 'Создание кастомного компонента для загрузки файлов',
         category: 'develop',
         iconBgColor: 'green',
-        time: '1ч',
+        spentTime: '',
+        plannedTime: '1ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },
@@ -547,6 +787,13 @@ export const TASKS: ITask[] = [
     },
     {
         key: 'TR-67',
+        project: { icon: '/icons/project-icon.svg', title: 'Simplanum' },
+        product: {
+            icon: '/icons/iOS.svg',
+            title: 'iOS',
+        },
+        version: 1.12,
+        feature: 'Вопрос по процедуре',
         status: 'paused',
         assignee: {
             name: 'Вильгельмина',
@@ -556,7 +803,8 @@ export const TASKS: ITask[] = [
         content: 'Реализация эффекта параллакса для секции сайта',
         category: 'develop',
         iconBgColor: 'green',
-        time: '3ч / 10ч',
+        spentTime: '3ч',
+        plannedTime: '10ч',
         stages: [
             { label: 'Этап 1', status: 'completed' },
             { label: 'Этап 2', status: 'pending' },

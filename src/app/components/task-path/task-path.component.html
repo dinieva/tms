@@ -1,0 +1,15 @@
+<div class="task-path">
+    <p>
+        @if(taskPath){
+        <img [src]="taskPath.project.icon" alt="taskPath.project.title" />{{
+            taskPath.project.title
+        }}
+        / <img [src]="taskPath.product.icon" alt="taskPath.product.title" />
+        {{ taskPath.product.title }}
+        / {{ taskPath.version }} /
+        <img src="/icons/feature.svg" alt="feature-icon" />
+        {{ taskPath.feature }} / } @else {
+        {{ taskPath }}
+        }
+    </p>
+</div>

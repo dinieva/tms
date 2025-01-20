@@ -1,5 +1,6 @@
-<div class="task">
-    <div class="task__header">
+<div class="task" (mouseleave)="onMouseLeave()">
+    <app-task-path [taskPath]="taskPath" [@taskPath]="taskPathState" />
+    <div class="task__header" (mouseenter)="showTaskPath()">
         <div class="left">
             <div class="task__icon-wrapper" [ngClass]="task.iconBgColor">
                 <img
@@ -53,7 +54,7 @@
                 />
                 <span class="task__executor-name"> Любой сотрудник</span>
             </div>
-            } @if(task.time){
+            } @if(task.plannedTime){
             <div class="task__time">
                 <svg
                     width="12"
@@ -69,18 +70,26 @@
                         />
                     </g>
                 </svg>
-                <span class="task__time">{{ task.time }}</span>
+                @if(task.spentTime){
+                <span class="task__time">
+                    {{ task.spentTime }} / {{ task.plannedTime }}</span
+                >
+                } @else {
+                <span class="task__time">
+                    {{ task.plannedTime }}
+                </span>
+                }
             </div>
             }
         </div>
     </div>
-    <div
-        class="task__btns-block"
-        [@toggleButtons]="buttonsBlockState"
-        (mouseleave)="onMouseLeave()"
-    >
-        @for(btn of generalButtons; track btn.title; let idx = $index){
+    <div class="task__btns-block" [@toggleButtons]="buttonsBlockState">
+        @if(task.status === 'in-progress'){ @for(btn of inProgressTaskButtons;
+        track btn.title; let idx = $index){
         <app-task-button [btn]="btn" />
-        }
+        } } @else { @for(btn of generalButtons; track btn.title; let idx =
+        $index){
+        <app-task-button [btn]="btn" />
+        } }
     </div>
 </div>

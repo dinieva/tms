@@ -10,6 +10,10 @@ button {
     border-radius: 6px;
     cursor: pointer;
     transition: background-color 1s ease-in-out;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
 }
 .to-fix {
     background-color: rgba(206, 0, 0, 0.05);
@@ -31,10 +35,28 @@ button {
 }
 
 .to-accept {
-    background-color: rgb(22, 164, 227, 0.05);
-    border: 1px solid rgb(22, 164, 227, 0.1);
+    background-color: rgba(22, 164, 227, 0.05);
+    border: 1px solid rgba(22, 164, 227, 0.1);
     color: variables.$green;
     &:hover {
-        background-color: rgba(22, 164, 227, 0.2);
+        background-color: rgbaa(22, 164, 227, 0.2);
+    }
+}
+.done {
+    width: 267px;
+    background-color: rgba(27, 186, 105, 0.05);
+    border: 1px solid rgba(27, 186, 105, 0.1);
+    color: variables.$green;
+    &:hover {
+        background-color: rgba(27, 186, 105, 0.2);
+    }
+}
+.pause {
+    width: 267px;
+    background-color: rgba(126, 126, 126, 0.05);
+    border: 1px solid rgba(126, 126, 126, 0.1);
+    color: variables.$text-secondary;
+    &:hover {
+        background-color: rgba(126, 126, 126, 0.2);
     }
 }

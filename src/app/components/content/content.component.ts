@@ -64,28 +64,4 @@ export class ContentComponent implements OnInit {
                 this.tasksWithoutAssignee = tasks;
             });
     }
-    /* ngOnInit(): void {
-        this.tasksFacadeService
-            .getTasksByAssignee(this.userProfile)
-            .subscribe((tasks: ITask[]) => {
-                this.userTasks = tasks;
-            });
-
-        this.tasksFacadeService
-            .getTaskByStatus('in-progress')
-            .subscribe((tasks: ITask[]) => {
-                this.tasksInProgress = tasks;
-            });
-        this.tasksFacadeService
-            .getTaskByStatus('paused')
-            .subscribe((tasks: ITask[]) => {
-                this.tasksInPause = tasks;
-            });
-
-        this.tasksFacadeService
-            .getTasksWithoutAssignee(undefined)
-            .subscribe((tasks: ITask[]) => {
-                this.tasksWithoutAssignee = tasks;
-            });
-    } */
 }

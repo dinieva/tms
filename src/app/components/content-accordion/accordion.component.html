@@ -1,3 +1,36 @@
+@if(accordionTitle === 'В работе' || accordionTitle === 'На паузе'){
+<div class="not-accordion">
+    <div
+        class="summary"
+        [ngStyle]="{
+            'background-color':
+                accordionTitle === 'В работе' ? '#EFFAFF' : '#F9FAFC',
+            
+        }"
+    >
+        <span
+            [ngStyle]="{
+                color: accordionTitle === 'В работе' ? '#16a4e3' : '#5e5e5e'
+            }"
+            >{{ accordionTitle }}:</span
+        >
+        @if(accordionQuantity > 1){
+        <span class="quantity">{{ accordionQuantity }}</span>
+        }
+    </div>
+    <div
+        class="accordion__block"
+        [ngStyle]="{
+            'background-color':
+                accordionTitle === 'В работе' ? '#EFFAFF' : '#F9FAFC'
+        }"
+    >
+        @if(tasks){ @for(task of tasks; track task.key){
+        <app-task-item [task]="task" />
+        }@empty { Список задач пуст } }
+    </div>
+</div>
+} @else {
 <details open>
     <summary>
         <span>{{ accordionTitle }}:</span>
@@ -11,3 +44,4 @@
         }@empty { Список задач пуст } }
     </div>
 </details>
+}
