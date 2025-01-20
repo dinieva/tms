@@ -30,13 +30,13 @@
         width: 100%;
         display: flex;
         gap: 6px;
-        margin-top: 20px;
     }
     &__bottom {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-top: 12px;
+        cursor: pointer;
     }
     &__executor {
         display: flex;
@@ -69,13 +69,23 @@
         margin-left: 3px;
     }
 }
+.hidden-block {
+    margin-top: 20px;
+    position: relative;
+    cursor: pointer;
+}
 .task__btns-block {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
     display: flex;
+    justify-content: space-between;
     gap: 12px;
     background-color: white;
     border: 1px solid #ffffff;
-    padding: 10px;
-    z-index: 1000;
+    padding: 0px 12px;
+    cursor: pointer;
 }
 .disabled {
     background-color: #fecdd3;

@@ -1,0 +1,40 @@
+@use 'variables';
+button {
+    width: 132px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 1s ease-in-out;
+}
+.to-fix {
+    background-color: rgba(206, 0, 0, 0.05);
+    border: 1px solid rgba(206, 0, 0, 0.1);
+    color: variables.$red;
+    &:hover {
+        background-color: rgba(206, 0, 0, 0.2);
+    }
+}
+
+.to-work {
+    width: 258px;
+    background-color: rgb(27, 186, 105, 0.05);
+    border: 1px solid rgb(27, 186, 105, 0.1);
+    color: variables.$active_blue;
+    &:hover {
+        background-color: rgba(27, 186, 105, 0.2);
+    }
+}
+
+.to-accept {
+    background-color: rgb(22, 164, 227, 0.05);
+    border: 1px solid rgb(22, 164, 227, 0.1);
+    color: variables.$green;
+    &:hover {
+        background-color: rgba(22, 164, 227, 0.2);
+    }
+}
