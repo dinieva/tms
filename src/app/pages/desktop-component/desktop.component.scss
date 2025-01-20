@@ -1,3 +1,15 @@
 .container {
     padding: 0 40px;
 }
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container {
+        padding: 30px;
+    }
+}
+
+/* Для экранов шириной от 992px до 1199px */
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+    .container {
+        padding: 40px;
+    }
+}

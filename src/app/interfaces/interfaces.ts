@@ -9,18 +9,29 @@ export type Assignee = {
     surname: string;
     avatarPath: string;
 };
+export type TaskStatus = 'completed' | 'in-progress' | 'paused' | 'pending';
+export type iconBgColor =
+    | 'green'
+    | 'critical'
+    | 'major'
+    | 'minor'
+    | 'trivial'
+    | 'disabled'
+    | 'aqua'
+    | 'dusty-blue';
+
 export type Stage = {
     label: string;
-    status: 'completed' | 'in-progress' | 'paused' | 'pending';
+    status: TaskStatus;
 };
 
 export interface ITask {
     key: string;
-    status: string;
+    status: TaskStatus;
     assignee: Assignee | undefined;
     content: string;
-    category: string;
-    iconBgColor: string;
+    category: 'general' | 'develop' | 'test' | 'errors';
+    iconBgColor: iconBgColor;
     time: string;
     stages: Stage[];
 }

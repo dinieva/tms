@@ -18,8 +18,11 @@
     </div>
 
     <div class="task__progress-bar">
-        @for(stage of stages; track stage.label; let idx = $index){
-        <app-progress-bar [status]="stage.status" />
+        @for(stage of task.stages; track stage.label; let idx = $index){
+        <app-progress-bar
+            [status]="stage.status"
+            [statusAmount]="task.stages.length"
+        />
         }
     </div>
     <div

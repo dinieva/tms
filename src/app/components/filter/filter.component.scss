@@ -10,6 +10,9 @@
     border: 1px solid #efefef;
     color: variables.$text-text;
     align-items: center;
+    &:hover {
+        cursor: pointer;
+    }
     & span {
         font-family: 'inter', sans-serif;
         color: variables.$text-text;
@@ -25,6 +28,7 @@ span {
     font-weight: 400;
 }
 .options {
+    position: absolute;
     width: 228px;
     min-width: 220px;
     max-width: 300px;
@@ -38,11 +42,27 @@ span {
     background-color: variables.$bg_light;
     filter: drop-shadow(0 -2px 4px rgba(0, 0, 0, 0.05))
         drop-shadow(0 21px 26.3px rgba(0, 0, 0, 0.1));
+    z-index: 10;
 }
 .option {
     display: flex;
     gap: 8px;
     border-radius: 4px;
+    transition: background-color 0.5s ease-in-out, color 0.3s ease,
+        border 0.3s ease;
+    &:hover {
+        cursor: pointer;
+        background-color: variables.$bg_blue;
+        color: variables.$active_blue;
+        border: 1px solid variables.$active_blue;
+    }
+}
+
+.options .option:first-child:hover {
+    cursor: none;
+    background-color: transparent;
+    color: variables.$text-text;
+    border: none;
 }
 .empty {
     width: 16px;
@@ -50,6 +70,11 @@ span {
 }
 .selected {
     background-color: variables.$bg_blue;
-    color: variables.$active_blue;
     border: 1px solid variables.$active_blue;
+    & span {
+        color: variables.$active_blue;
+    }
+    & svg path {
+        fill: variables.$active_blue;
+    }
 }

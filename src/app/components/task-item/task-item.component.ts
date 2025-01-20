@@ -14,11 +14,4 @@ import { ITask, Stage } from 'src/app/interfaces/interfaces';
 export class TaskItemComponent {
     @Input() task!: ITask;
     showButtons: boolean = false;
-    stages: Stage[] = [
-        { label: 'Этап 1', status: 'completed' },
-        { label: 'Этап 2', status: 'pending' },
-        { label: 'Этап 3', status: 'pending' },
-        { label: 'Этап 4', status: 'pending' },
-        { label: 'Этап 5', status: 'pending' },
-    ];
 }

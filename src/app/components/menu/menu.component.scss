@@ -2,6 +2,9 @@
 ul {
     display: flex;
     gap: 24px;
+    @media screen and (max-width: 1245px) {
+        gap: 12px;
+    }
 }
 li {
     list-style: none;

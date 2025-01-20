@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Injectable, signal } from '@angular/core';
+import { BehaviorSubject, map, Observable, of, Subject, switchMap } from 'rxjs';
 import { Assignee, ITask } from 'src/app/interfaces/interfaces';
 import { TASKS } from 'src/app/mock-task-list';
 
@@ -7,24 +7,49 @@ import { TASKS } from 'src/app/mock-task-list';
     providedIn: 'root',
 })
 export class TasksService {
-    getTasksByAssignee(param: Assignee): Observable<ITask[]> {
-        const filteredTasks = TASKS.filter((task) => {
-            console.log(task);
+    private categoryFilterSubject = new Subject<string>();
+    data$ = this.categoryFilterSubject.asObservable();
 
-            return (
-                task.assignee?.name === param.name &&
-                task.assignee?.surname === param.surname &&
-                task.status === 'pending'
-            );
-        });
-        return of(filteredTasks);
+    updateData(data: string): void {
+        this.categoryFilterSubject.next(data);
+    }
+
+    private allTasksSubject = new BehaviorSubject<ITask[]>(TASKS);
+    allTasksSignal = this.allTasksSubject.asObservable();
+    setAllTasks(tasks: ITask[]) {
+        this.allTasksSubject.next(tasks);
+    }
+
+    getTasksByAssignee(param: Assignee): Observable<ITask[]> {
+        return this.allTasksSignal.pipe(
+            map((tasks) =>
+                tasks.filter((task) => {
+                    return (
+                        task.assignee?.name === param.name &&
+                        task.assignee?.surname === param.surname &&
+                        task.status === 'pending'
+                    );
+                })
+            )
+        );
     }
     getTaskByStatus(param: string): Observable<ITask[]> {
-        const filteredTasks = TASKS.filter((task) => task.status === param);
-        return of(filteredTasks);
+        return this.allTasksSignal.pipe(
+            map((tasks) => tasks.filter((task) => task.status === param))
+        );
     }
+
     getTasksWithoutAssignee(param: undefined): Observable<ITask[]> {
-        const filteredTasks = TASKS.filter((task) => task.assignee === param);
-        return of(filteredTasks);
+        return this.allTasksSignal.pipe(
+            map((tasks) => tasks.filter((task) => task.assignee === param))
+        );
+    }
+
+    filterTasksByCategory(category: string): Observable<ITask[]> {
+        const filteredTaskList = TASKS.filter(
+            (task) => task.category === category
+        );
+        this.setAllTasks(filteredTaskList);
+        return of(filteredTaskList);
     }
 }

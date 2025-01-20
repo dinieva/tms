@@ -12,13 +12,12 @@ export class TabComponent {
     @Input() title!: string;
     @Input() activeTabIndex!: number;
     @Input() idx!: number;
+    @Input() amount!: number;
 
     get isActive(): boolean {
         return this.activeTabIndex === this.idx;
     }
     handleClick(e: any) {
         console.log(e);
-
-        //
     }
 }
