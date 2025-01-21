@@ -1,5 +1,5 @@
 export type Option = {
-    iconPath: string;
+    iconPath?: string;
     title: string;
     value: string;
 };
@@ -9,28 +9,23 @@ export type Assignee = {
     surname: string;
     avatarPath: string;
 };
-export type TaskStatus = 'completed' | 'in-progress' | 'paused' | 'pending';
+export type currentTaskStep =
+    | 'completed'
+    | 'in-progress'
+    | 'paused'
+    | 'pending';
 
-export type TaskType =
-    | { type: 'general' }
-    | { type: 'develop' }
-    | { type: 'test' }
-    | { type: 'errors' }
-    | { type: 'all' };
-
-export type iconBgColor =
-    | 'green'
-    | 'critical'
-    | 'major'
-    | 'minor'
-    | 'trivial'
-    | 'disabled'
-    | 'aqua'
-    | 'dusty-blue';
+export type TaskStatus =
+    | { title: 'Согласование'; engTitle: 'coordination' }
+    | { title: 'Исполнение'; engTitle: 'progress' }
+    | { title: 'Ревью'; engTitle: 'review' }
+    | { title: 'Деплой'; engTitle: 'deploy' }
+    | { title: 'Тестирование'; engTitle: 'test' }
+    | { title: 'Закрыто'; engTitle: 'close' };
 
 export type Stage = {
     label: string;
-    status: TaskStatus;
+    step: currentTaskStep;
 };
 
 export interface ITask {
@@ -39,11 +34,20 @@ export interface ITask {
     project: Project;
     version: number;
     feature: string;
-    status: TaskStatus;
+    currentTaskStep: currentTaskStep;
+    status?: TaskStatus;
     assignee: Assignee | undefined;
     content: string;
     category: 'general' | 'develop' | 'test' | 'errors';
-    iconBgColor: iconBgColor;
+    department?:
+        | 'frontend'
+        | 'backend'
+        | 'testing'
+        | 'design'
+        | 'analytics'
+        | 'hashtag'
+        | 'diagram';
+    iconBgColor: string;
     spentTime: string;
     plannedTime: string;
     stages: Stage[];

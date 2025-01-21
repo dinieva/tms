@@ -38,7 +38,7 @@
         <span class="quantity">{{ accordionQuantity }}</span>
         }
     </summary>
-    <div class="accordion__block">
+    <div class="accordion__block" (scroll)="onScroll($event)">
         @if(tasks){ @for(task of tasks; track task.key){
         <app-task-item [task]="task" />
         }@empty { Список задач пуст } }

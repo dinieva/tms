@@ -11,18 +11,24 @@
         display: flex;
         justify-content: space-between;
         gap: 10px;
+
         &-key {
             font-family: 'Inter', sans-serif;
             font-size: 14px;
             line-height: 21px;
             font-weight: 400;
             color: variables.$text-secondary;
+            flex-grow: 1;
+            text-align: right;
+            flex-shrink: 0;
         }
         &-title {
             font-family: 'Inter', sans-serif;
             font-size: 14px;
             line-height: 21px;
             font-weight: 500;
+            flex-grow: 2;
+            overflow: hidden;
         }
     }
     &__icon-wrapper {
@@ -32,6 +38,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-shrink: 0;
     }
     &__progress-bar {
         width: 100%;
@@ -44,6 +51,25 @@
         align-items: center;
         margin-top: 12px;
         cursor: pointer;
+        &-left {
+            display: flex;
+            gap: 12px;
+        }
+    }
+    &__status {
+        width: 16px;
+        height: 16px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    &__status-progress {
+        width: 16px;
+        height: 16px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-color: variables.$active_blue;
     }
     &__executor {
         display: flex;
@@ -52,17 +78,6 @@
         font-size: 13px;
         line-height: 18px;
         font-weight: 400;
-        &::before {
-            content: '';
-            display: block;
-            width: 16px;
-            height: 16px;
-            background-image: url('/icons/statusTask.svg');
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            margin-right: 12px;
-        }
         &-avatar {
             margin-right: 4px;
         }
@@ -86,40 +101,24 @@
     bottom: 12px;
     left: 0;
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 12px;
     background-color: white;
     border: 1px solid #ffffff;
     padding: 0px 12px;
     cursor: pointer;
+    &.progress {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: 768px) {
+        gap: 6px;
+    }
 }
+
 .task__btns-block .center {
     justify-content: center;
-}
-.disabled {
-    background-color: #fecdd3;
-}
-.critical {
-    background-color: variables.$critical;
-}
-.major {
-    background-color: variables.$major;
-}
-.minor {
-    background-color: #e27475;
-}
-.trivial {
-    background-color: variables.$trivial;
-}
-.dusty-blue {
-    background-color: #899da7;
-}
-.green {
-    background-color: #52a7ac;
-}
-.aqua {
-    background-color: #39b39d;
 }
 
 .left {

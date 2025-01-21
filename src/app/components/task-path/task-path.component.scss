@@ -3,12 +3,15 @@
 .task-path {
     color: variables.$text-service;
     margin-bottom: 8px;
-}
-p {
     display: flex;
     gap: 6px;
+    flex-wrap: wrap;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 21px;
+}
+div {
+    display: flex;
+    gap: 6px;
 }

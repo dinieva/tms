@@ -1,7 +1,6 @@
 import {
     ChangeDetectionStrategy,
     Component,
-    inject,
     Input,
     OnInit,
 } from '@angular/core';
@@ -41,15 +40,15 @@ import { TaskPathComponent } from '../task-path/task-path.component';
         ]),
         trigger('taskPath', [
             state(
-                'hidden',
+                'close',
                 style({ display: 'none', transform: 'translateY(-100%)' })
             ),
             state(
-                'visible',
+                'open',
                 style({ display: 'block', transform: 'translateY(0)' })
             ),
-            transition('hidden => visible', [animate('300ms ease-in')]),
-            transition('visible => hidden', [animate('800ms ease-out')]),
+            transition('close => open', [animate('300ms ease-in')]),
+            transition('open => close', [animate('800ms ease-out')]),
         ]),
     ],
     templateUrl: './task-item.component.html',
@@ -64,7 +63,7 @@ export class TaskItemComponent implements OnInit {
 
     @Input() task!: ITask;
     protected buttonsBlockState: 'visible' | 'hidden' = 'hidden';
-    protected taskPathState: 'visible' | 'hidden' = 'hidden';
+    protected taskPathState: 'open' | 'close' = 'close';
     generalButtons = [
         {
             title: 'Исправить',
@@ -95,6 +94,7 @@ export class TaskItemComponent implements OnInit {
         },
     ];
     taskPath: taskPath | undefined;
+
     constructor() {
         this.mouseEnterSubject.pipe(debounceTime(300)).subscribe(() => {
             this.buttonsBlockState = 'visible';
@@ -104,15 +104,14 @@ export class TaskItemComponent implements OnInit {
             this.buttonsBlockState = 'hidden';
         });
         this.mouseEnterSubjectHeader.pipe(debounceTime(300)).subscribe(() => {
-            this.taskPathState = 'visible';
+            this.taskPathState = 'open';
         });
 
         this.mouseLeaveSubjectPath.pipe(debounceTime(800)).subscribe(() => {
-            this.taskPathState = 'hidden';
+            this.taskPathState = 'close';
         });
     }
     onMouseLeave() {
-        console.log('Событие получено от родителя!');
         this.mouseLeaveSubject.next();
         this.mouseLeaveSubjectPath.next();
     }

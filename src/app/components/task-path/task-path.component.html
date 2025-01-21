@@ -1,15 +1,21 @@
 <div class="task-path">
-    <p>
-        @if(taskPath){
-        <img [src]="taskPath.project.icon" alt="taskPath.project.title" />{{
-            taskPath.project.title
-        }}
-        / <img [src]="taskPath.product.icon" alt="taskPath.product.title" />
-        {{ taskPath.product.title }}
-        / {{ taskPath.version }} /
+    @if(taskPath){
+    <div>
+        <img [src]="taskPath.project.icon" alt="taskPath.project.title" />
+        <span>{{ taskPath.project.title }} / </span>
+    </div>
+    <div>
+        <img [src]="taskPath.product.icon" alt="taskPath.product.title" />
+        <span>{{ taskPath.product.title }} /</span>
+    </div>
+    <div>
+        <span>{{ taskPath.version }} /</span>
+    </div>
+    <div>
         <img src="/icons/feature.svg" alt="feature-icon" />
-        {{ taskPath.feature }} / } @else {
-        {{ taskPath }}
-        }
-    </p>
+        <span>{{ taskPath.feature }} /</span>
+    </div>
+    } @else {
+    {{ taskPath }}
+    }
 </div>

@@ -13,6 +13,10 @@ import { Option } from 'src/app/interfaces/interfaces';
 export class FilterBlockComponent {
     options: Option[] = [
         {
+            title: 'Все продукты',
+            value: 'all',
+        },
+        {
             iconPath: '/icons/option-logo.svg',
             title: 'Название №1',
             value: 'first',
@@ -29,6 +33,10 @@ export class FilterBlockComponent {
         },
     ];
     taskOptions: Option[] = [
+        {
+            title: 'Все задачи',
+            value: 'all',
+        },
         {
             iconPath: '/icons/category-general.svg',
             title: 'Общие',

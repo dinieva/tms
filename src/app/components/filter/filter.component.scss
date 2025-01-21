@@ -58,12 +58,6 @@ span {
     }
 }
 
-.options .option:first-child:hover {
-    cursor: none;
-    background-color: transparent;
-    color: variables.$text-text;
-    border: none;
-}
 .empty {
     width: 16px;
     height: 16px;

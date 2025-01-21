@@ -2,8 +2,14 @@
 ul {
     display: flex;
     gap: 24px;
-    @media screen and (max-width: 1245px) {
+    @media (max-width: 1360px) {
         gap: 12px;
+    }
+    @media (max-width: 1250px) {
+        gap: 6px;
+    }
+    @media (max-width: 1060px) {
+        display: none;
     }
 }
 li {
@@ -12,6 +18,12 @@ li {
     align-items: center;
     gap: 8px;
     margin-right: 24px;
+    @media (max-width: 1360px) {
+        margin-right: 12px;
+    }
+    @media (max-width: 1250px) {
+        margin-right: 6px;
+    }
 }
 a {
     font-family: 'Inter', sans-serif;

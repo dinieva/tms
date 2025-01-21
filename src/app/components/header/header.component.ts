@@ -7,10 +7,11 @@ import {
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../menu/menu.component';
 import { DateService } from 'src/app/services/date.service';
+import { BurgerMenuComponent } from '../burger-menu/burger-menu.component';
 
 @Component({
     selector: 'app-header',
-    imports: [CommonModule, MenuComponent],
+    imports: [CommonModule, MenuComponent, BurgerMenuComponent],
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,

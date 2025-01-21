@@ -27,15 +27,17 @@ export class TasksService {
                     return (
                         task.assignee?.name === param.name &&
                         task.assignee?.surname === param.surname &&
-                        task.status === 'pending'
+                        task.currentTaskStep === 'pending'
                     );
                 })
             )
         );
     }
-    getTaskByStatus(param: string): Observable<ITask[]> {
+    getTaskByCurrentTaskStep(param: string): Observable<ITask[]> {
         return this.allTasksSignal.pipe(
-            map((tasks) => tasks.filter((task) => task.status === param))
+            map((tasks) =>
+                tasks.filter((task) => task.currentTaskStep === param)
+            )
         );
     }
 
@@ -46,10 +48,48 @@ export class TasksService {
     }
 
     filterTasksByCategory(category: string): Observable<ITask[]> {
-        const filteredTaskList = TASKS.filter(
-            (task) => task.category === category
-        );
-        this.setAllTasks(filteredTaskList);
-        return of(filteredTaskList);
+        if (category === 'all') {
+            this.setAllTasks(TASKS);
+            return of(TASKS);
+        } else {
+            const filteredTaskList = TASKS.filter(
+                (task) => task.category === category
+            );
+            this.setAllTasks(filteredTaskList);
+            return of(filteredTaskList);
+        }
+    }
+    filterTasksByTaskStatus(tabIndex: number): Observable<ITask[]> {
+        if (tabIndex === 0) {
+            const filteredTaskList = TASKS.filter(
+                (task) => task.status?.engTitle === 'coordination'
+            );
+            this.setAllTasks(filteredTaskList);
+            return of(filteredTaskList);
+        }
+        if (tabIndex === 1) {
+            const filteredTaskList = TASKS.filter(
+                (task) => task.status?.engTitle === 'review'
+            );
+            this.setAllTasks(filteredTaskList);
+            return of(filteredTaskList);
+        }
+        if (tabIndex === 2) {
+            const filteredTaskList = TASKS.filter(
+                (task) => task.status?.engTitle === 'progress'
+            );
+            this.setAllTasks(filteredTaskList);
+            return of(filteredTaskList);
+        }
+        if (tabIndex === 3) {
+            const filteredTaskList = TASKS.filter(
+                (task) => task.status === undefined
+            );
+            this.setAllTasks(filteredTaskList);
+            return of(filteredTaskList);
+        } else {
+            this.setAllTasks(TASKS);
+            return of(TASKS);
+        }
     }
 }

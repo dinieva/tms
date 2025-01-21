@@ -2,7 +2,18 @@
     <app-task-path [taskPath]="taskPath" [@taskPath]="taskPathState" />
     <div class="task__header" (mouseenter)="showTaskPath()">
         <div class="left">
-            <div class="task__icon-wrapper" [ngClass]="task.iconBgColor">
+            <div
+                class="task__icon-wrapper"
+                [ngStyle]="{ 'background-color': task.iconBgColor }"
+            >
+                @if( task.department ){
+                <img
+                    src="icons/{{ task.department }}.svg"
+                    alt="icon"
+                    width="14px"
+                    height="8px"
+                    class="task__icon"
+                />} @else {
                 <img
                     src="icons/{{ task.category }}.svg"
                     alt="icon"
@@ -10,6 +21,7 @@
                     height="8px"
                     class="task__icon"
                 />
+                }
             </div>
             <span class="task__header-title">{{ task.content }}</span>
         </div>
@@ -22,39 +34,58 @@
         <div class="task__progress-bar">
             @for(stage of task.stages; track stage.label; let idx = $index){
             <app-progress-bar
-                [status]="stage.status"
+                [status]="stage.step"
                 [statusAmount]="task.stages.length"
             />
             }
         </div>
 
         <div class="task__bottom" (mouseenter)="onMouseEnter()">
-            @if(task.assignee){
-            <div class="task__executor">
-                <img
-                    [src]="task.assignee.avatarPath"
-                    alt="avatar"
-                    width="16px"
-                    height="16px"
-                    class="task__executor-avatar"
-                />
-                <span class="task__executor-name"
-                    >{{ task.assignee.name }}
-                    {{ task.assignee.surname | executorNameFormat }}</span
-                >
+            <div class="task__bottom-left">
+                @if(task.currentTaskStep === 'in-progress'){
+                <div
+                    class="task__status-progress"
+                    [ngStyle]="{
+                        'mask-image':
+                            'url(/icons/' + task?.status?.engTitle + '.svg)'
+                    }"
+                ></div>
+                } @else {
+                <div
+                    class="task__status"
+                    [ngStyle]="{
+                        'background-image':
+                            'url(/icons/' + task?.status?.engTitle + '.svg)'
+                    }"
+                ></div>
+                } @if(task.assignee){
+                <div class="task__executor">
+                    <img
+                        [src]="task.assignee.avatarPath"
+                        alt="avatar"
+                        width="16px"
+                        height="16px"
+                        class="task__executor-avatar"
+                    />
+                    <span class="task__executor-name"
+                        >{{ task.assignee.name }}
+                        {{ task.assignee.surname | executorNameFormat }}</span
+                    >
+                </div>
+                } @else {
+                <div class="task__executor">
+                    <img
+                        src="/icons/profile-ava.svg"
+                        alt="avatar"
+                        width="16px"
+                        height="16px"
+                        class="task__executor-avatar"
+                    />
+                    <span class="task__executor-name"> Любой сотрудник</span>
+                </div>
+                }
             </div>
-            } @else {
-            <div class="task__executor">
-                <img
-                    src="/icons/profile-ava.svg"
-                    alt="avatar"
-                    width="16px"
-                    height="16px"
-                    class="task__executor-avatar"
-                />
-                <span class="task__executor-name"> Любой сотрудник</span>
-            </div>
-            } @if(task.plannedTime){
+            @if(task.plannedTime){
             <div class="task__time">
                 <svg
                     width="12"
@@ -83,13 +114,18 @@
             }
         </div>
     </div>
-    <div class="task__btns-block" [@toggleButtons]="buttonsBlockState">
-        @if(task.status === 'in-progress'){ @for(btn of inProgressTaskButtons;
-        track btn.title; let idx = $index){
+
+    @if(task.currentTaskStep === 'in-progress'){
+    <div class="task__btns-block progress" [@toggleButtons]="buttonsBlockState">
+        @for(btn of inProgressTaskButtons; track btn.title; let idx = $index){
         <app-task-button [btn]="btn" />
-        } } @else { @for(btn of generalButtons; track btn.title; let idx =
-        $index){
-        <app-task-button [btn]="btn" />
-        } }
+        }
     </div>
+    } @else {
+    <div class="task__btns-block" [@toggleButtons]="buttonsBlockState">
+        @for(btn of generalButtons; track btn.title; let idx = $index){
+        <app-task-button [btn]="btn" />
+        }
+    </div>
+    }
 </div>

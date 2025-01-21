@@ -1,0 +1,22 @@
+<div class="burger-wrapper">
+    <input type="checkbox" id="burger-checkbox" class="burger-checkbox" />
+    <label for="burger-checkbox" class="burger"></label>
+    <ul class="menu-list">
+        @for(item of menuItems; track item.name){
+        <li class="menu-item">
+            <img [src]="'/icons/' + item.icon" alt="{{ item.name }}" />
+            <a
+                [routerLink]="item.path"
+                routerLinkActive="active-route"
+                ariaCurrentWhenActive="page"
+            >
+                {{ item.name }}</a
+            >
+            @if(item.name==="Проекты"){
+            <img src="/icons/Chevron.svg" alt="стрелка вниз" />
+            }
+        </li>
+
+        }
+    </ul>
+</div>

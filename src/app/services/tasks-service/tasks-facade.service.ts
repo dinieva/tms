@@ -17,8 +17,8 @@ export class TasksFacadeService {
         return this.tasksService.getTasksByAssignee(param);
     }
 
-    getTaskByStatus(param: string): Observable<ITask[]> {
-        return this.tasksService.getTaskByStatus(param);
+    getTaskByCurrentTaskStep(param: string): Observable<ITask[]> {
+        return this.tasksService.getTaskByCurrentTaskStep(param);
     }
 
     getTasksWithoutAssignee(param: undefined): Observable<ITask[]> {
@@ -27,5 +27,8 @@ export class TasksFacadeService {
 
     filterTasksByCategory(category: string): Observable<ITask[]> {
         return this.tasksService.filterTasksByCategory(category);
+    }
+    filterTasksByTaskStatus(tabIndex: number): Observable<ITask[]> {
+        return this.tasksService.filterTasksByTaskStatus(tabIndex);
     }
 }

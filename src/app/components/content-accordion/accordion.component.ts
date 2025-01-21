@@ -14,4 +14,8 @@ export class AccordionComponent {
     @Input() accordionTitle!: string;
     @Input() accordionQuantity!: number;
     @Input() tasks!: ITask[];
+
+    onScroll(event: Event): void {
+        event.stopPropagation();
+    }
 }

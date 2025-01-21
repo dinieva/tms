@@ -3,9 +3,7 @@
         <div class="content__column content__column--left">
             <app-filter-block />
             <app-tab-block (activeTabChange)="activeTabIndex = $event" />
-
             <div class="block">
-                @if(activeTabIndex === 2) {
                 <app-accordion
                     [accordionTitle]="'Мои'"
                     [accordionQuantity]="userTasks.length"
@@ -16,13 +14,11 @@
                     [accordionQuantity]="tasksWithoutAssignee.length"
                     [tasks]="tasksWithoutAssignee"
                 />
-                }
             </div>
         </div>
 
         <div class="content__column content__column--right">
             <div class="block">
-                @if(activeTabIndex === 2) {
                 <app-accordion
                     [accordionTitle]="'В работе'"
                     [accordionQuantity]="tasksInProgress.length"
@@ -33,7 +29,6 @@
                     [accordionQuantity]="tasksInPause.length"
                     [tasks]="tasksInPause"
                 />
-                }
             </div>
         </div>
     </div>

@@ -22,19 +22,13 @@ export class FilterComponent {
     @Input() filterCategory!: string;
     @Input() options!: Option[];
 
-    selectedOption:
-        | { iconPath: string; title: string; value: string }
-        | undefined = undefined;
+    selectedOption: Option | undefined = undefined;
     isDropdownOpen: boolean = false;
 
     toggleDropdown(): void {
         this.isDropdownOpen = !this.isDropdownOpen;
     }
-    selectOption(option: {
-        iconPath: string;
-        title: string;
-        value: string;
-    }): void {
+    selectOption(option: Option): void {
         this.selectedOption = option;
         this.tasksFacadeService.filterTasksByCategory(option.value);
         this.isDropdownOpen = false;

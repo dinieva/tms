@@ -48,12 +48,12 @@ export class ContentComponent implements OnInit {
             });
 
         this.tasksFacadeService
-            .getTaskByStatus('in-progress')
+            .getTaskByCurrentTaskStep('in-progress')
             .subscribe((tasks: ITask[]) => {
                 this.tasksInProgress = tasks;
             });
         this.tasksFacadeService
-            .getTaskByStatus('paused')
+            .getTaskByCurrentTaskStep('paused')
             .subscribe((tasks: ITask[]) => {
                 this.tasksInPause = tasks;
             });

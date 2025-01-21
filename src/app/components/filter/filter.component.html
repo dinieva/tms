@@ -4,13 +4,16 @@
         (click)="toggleDropdown()"
         [ngClass]="selectedOption ? 'selected' : 'default'"
     >
-        @if(selectedOption){
+        @if(selectedOption){ @if(selectedOption.iconPath){
         <img
             [src]="selectedOption.iconPath"
             alt="icon"
             width="16px"
             height="16px"
         />
+        } @else {
+        <div class="empty"></div>
+        }
 
         <span>{{ selectedOption.title }}</span>
         <svg
@@ -45,18 +48,17 @@
 
     @if(isDropdownOpen){
     <div class="options">
-        <div class="option">
-            <div class="empty"></div>
-            <span>{{ filterCategory }}</span>
-        </div>
         @for (option of options; track option.title) {
         <div class="option" (click)="selectOption(option)">
+            @if(option.iconPath){
             <img
                 [src]="option.iconPath"
                 [alt]="option.title"
                 width="16px"
                 height="16px"
-            />
+            />} @else {
+            <div class="empty"></div>
+            }
             <span>{{ option.title }}</span>
         </div>
         }
