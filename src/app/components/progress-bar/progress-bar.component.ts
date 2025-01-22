@@ -11,8 +11,4 @@ import { CommonModule } from '@angular/common';
 export class ProgressBarComponent {
     @Input() status!: string;
     @Input() statusAmount!: number;
-
-    calculateMinWidth(): string {
-        return `calc((50vw - (40px + 32px + 12px + 12px + 12px + 12px + 6px * (${this.statusAmount} - 1))) / ${this.statusAmount})`;
-    }
 }

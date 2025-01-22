@@ -45,7 +45,12 @@
     &__progress-bar {
         width: 100%;
         display: flex;
+        justify-content: space-between;
+        align-items: center;
         gap: 6px;
+        &.task__progress-bar > app-progress-bar {
+            flex: 1;
+        }
     }
     &__bottom {
         display: flex;

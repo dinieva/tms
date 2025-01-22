@@ -20,7 +20,6 @@ export class AppComponent {
     onResize(event: any) {
         this.checkScreenSize();
     }
-
     private checkScreenSize() {
         this.isMobile = window.innerWidth <= 768;
     }
