@@ -1,0 +1,16 @@
+@use 'variables';
+.container {
+    padding: 8px 16px;
+    margin-top: 55px;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 100px;
+}
+.tab-menu {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 12px;
+}

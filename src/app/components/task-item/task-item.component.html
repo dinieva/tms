@@ -42,12 +42,12 @@
 
         <div class="task__bottom" (mouseenter)="onMouseEnter()">
             <div class="task__bottom-left">
-                @if(task.currentTaskStep === 'in-progress'){
+                @if(task.status){ @if(task.currentTaskStep === 'in-progress'){
                 <div
                     class="task__status-progress"
                     [ngStyle]="{
                         'mask-image':
-                            'url(/icons/' + task?.status?.engTitle + '.svg)'
+                            'url(/icons/' + task.status.engTitle + '.svg)'
                     }"
                 ></div>
                 } @else {
@@ -55,10 +55,10 @@
                     class="task__status"
                     [ngStyle]="{
                         'background-image':
-                            'url(/icons/' + task?.status?.engTitle + '.svg)'
+                            'url(/icons/' + task.status.engTitle + '.svg)'
                     }"
                 ></div>
-                } @if(task.assignee){
+                } } @if(task.assignee){
                 <div class="task__executor">
                     <img
                         [src]="task.assignee.avatarPath"

@@ -5,7 +5,7 @@ import { MobileComponent } from './pages/mobile-component/mobile.component';
 export const routes: Routes = [
     { path: 'mobile', component: MobileComponent },
     {
-        path: '',
+        path: 'desctop',
         component: DesktopComponent,
         children: [
             { path: 'projects', redirectTo: '/', pathMatch: 'full' },

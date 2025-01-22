@@ -1,13 +1,13 @@
 @if(accordionTitle === 'В работе' || accordionTitle === 'На паузе'){
-<div class="not-accordion">
-    <div
-        class="summary"
-        [ngStyle]="{
-            'background-color':
-                accordionTitle === 'В работе' ? '#EFFAFF' : '#F9FAFC',
-            
-        }"
-    >
+<div
+    class="not-accordion"
+    [ngStyle]="{
+    'background-color':
+        accordionTitle === 'В работе' ? '#EFFAFF' : 'none',
+    
+}"
+>
+    <div class="summary">
         <span
             [ngStyle]="{
                 color: accordionTitle === 'В работе' ? '#16a4e3' : '#5e5e5e'

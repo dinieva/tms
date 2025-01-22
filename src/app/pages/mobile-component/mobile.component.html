@@ -1,1 +1,29 @@
-<p>mobile works!</p>
+<div class="container">
+    <div class="content">
+        <app-accordion
+            [accordionTitle]="'В работе'"
+            [accordionQuantity]="tasksInProgress.length"
+            [tasks]="tasksInProgress"
+        />
+        <app-accordion
+            [accordionTitle]="'На паузе'"
+            [accordionQuantity]="tasksInPause.length"
+            [tasks]="tasksInPause"
+        />
+        <app-tab-block (activeTabChange)="activeTabIndex = $event" />
+
+        <app-accordion
+            [accordionTitle]="'Мои'"
+            [accordionQuantity]="userTasks.length"
+            [tasks]="userTasks"
+        />
+        <app-accordion
+            [accordionTitle]="'Не назначенные'"
+            [accordionQuantity]="tasksWithoutAssignee.length"
+            [tasks]="tasksWithoutAssignee"
+        />
+    </div>
+    <div class="tab-menu">
+        <app-mobile-menu />
+    </div>
+</div>

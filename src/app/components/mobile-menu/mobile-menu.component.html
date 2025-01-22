@@ -1,1 +1,37 @@
-<p>mobile-menu works!</p>
+<div class="tab-bar">
+    <ul class="tab-bar__list">
+        @for(item of menuItems; track item.name){
+
+        <li class="tab-bar__item">
+            <img
+                [src]="'/icons/' + item.icon"
+                alt="{{ item.name }}"
+                class="tab-bar__icon"
+            />
+            <a
+                [routerLink]="item.path"
+                routerLinkActive="active-route"
+                ariaCurrentWhenActive="page"
+            >
+            </a>
+            <div
+                class="notification-count"
+                [ngClass]="{
+                    'team-notification ': item.name === 'Команда',
+                    'message-notification ': item.name === 'Сообщения',
+                    hidden: item.name === 'Главная'
+                }"
+            >
+                <span class="notification-count__num">
+                    @if(item.name === 'Команда'){
+                    {{ teamNotification }}
+                    } @if(item.name === 'Сообщения'){
+                    {{ messageNotification }}
+                    }
+                </span>
+            </div>
+        </li>
+        }
+    </ul>
+</div>
+<router-outlet />

@@ -23,6 +23,9 @@ details summary::before {
 details[open] summary::before {
     background-image: url('/icons/Chevron.svg');
 }
+details:not([open]) summary::before {
+    background-image: url('/icons/chevron-right.svg');
+}
 details {
     width: 100%;
 }
@@ -56,18 +59,23 @@ span {
     color: variables.$text-secondary;
     text-align: center;
     font-size: 14px;
+    margin-top: 12px;
     &::-webkit-scrollbar {
         width: 0;
     }
+    @media screen and (max-width: 768px) {
+        max-height: none;
+        height: auto;
+        overflow: visible;
+    }
 }
 .not-accordion {
-    background-color: #effaff;
     border-radius: 8px;
     & .summary {
         display: flex;
         align-items: center;
         padding: 12px 12px 0px 12px;
-        border-radius: 8px;
+
         &::before {
             content: '';
             width: 0;

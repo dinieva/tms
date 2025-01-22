@@ -29,6 +29,8 @@
             font-weight: 500;
             flex-grow: 2;
             overflow: hidden;
+            text-align: left;
+            color: variables.$text-primary;
         }
     }
     &__icon-wrapper {

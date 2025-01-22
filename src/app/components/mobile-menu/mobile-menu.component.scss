@@ -1,0 +1,56 @@
+@use 'variables';
+.tab-bar {
+    width: 280px;
+    height: 60px;
+
+    gap: 4px;
+    padding: 0 16px;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 6px rgba(0, 7, 62, 0.05);
+    box-shadow: 0px 12px 24px rgba(0, 7, 62, 0.1);
+    &__list {
+        display: flex;
+        justify-content: center;
+        list-style-type: none;
+    }
+    &__item {
+        width: 80px;
+        height: 60px;
+        padding: 20px 8px;
+        text-align: center;
+        position: relative;
+    }
+    &__icon {
+        width: 20px;
+        height: 20px;
+        // position: relative;
+    }
+}
+.notification-count {
+    position: absolute;
+    padding: 2px 6px;
+    border-radius: 16px;
+    text-align: center;
+    &__num {
+        color: variables.$white;
+        font-family: 'Inter', sans-serif;
+        font-size: 11px;
+        line-height: 16px;
+        font-weight: 500;
+    }
+    &.team-notification {
+        background-color: variables.$active_blue;
+        right: 14px;
+        top: 8px;
+    }
+    &.message-notification {
+        background-color: variables.$red;
+        right: 20px;
+        top: 8px;
+    }
+    &.hidden {
+        display: none;
+    }
+}

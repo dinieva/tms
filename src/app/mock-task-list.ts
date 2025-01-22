@@ -450,7 +450,7 @@ export const TASKS: ITask[] = [
         department: 'frontend',
         iconBgColor: '#52A7AC',
         status: { title: 'Ревью', engTitle: 'review' },
-        spentTime: ' ',
+        spentTime: '',
         plannedTime: '8ч 53м',
         stages: [
             { label: 'Этап 1', step: 'completed' },
