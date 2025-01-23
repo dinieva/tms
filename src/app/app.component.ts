@@ -10,7 +10,7 @@ import { MobileComponent } from './pages/mobile-component/mobile.component';
     styleUrl: './app.component.scss',
 })
 export class AppComponent {
-    isMobile: boolean = false;
+    isMobile = false;
 
     constructor() {
         this.checkScreenSize();

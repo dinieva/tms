@@ -1,5 +1,5 @@
 <div class="content">
-    <div class="content__columns">
+    <div class="content__columns" (click)="handleClick()">
         <div class="content__column content__column--left">
             <app-filter-block />
             <app-tab-block (activeTabChange)="activeTabIndex = $event" />

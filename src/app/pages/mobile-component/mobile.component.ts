@@ -1,6 +1,7 @@
 import {
     ChangeDetectionStrategy,
     Component,
+    HostListener,
     inject,
     OnInit,
     signal,
@@ -11,6 +12,7 @@ import { TabBlockComponent } from 'src/app/components/tab-block/tab-block.compon
 import { TasksFacadeService } from 'src/app/services/tasks-service/tasks-facade.service';
 import { ITask } from 'src/app/interfaces/interfaces';
 import { MobileMenuComponent } from 'src/app/components/mobile-menu/mobile-menu.component';
+import { EventServiceService } from 'src/app/services/event-service/event-service-.service';
 
 @Component({
     selector: 'app-mobile',
@@ -26,6 +28,7 @@ import { MobileMenuComponent } from 'src/app/components/mobile-menu/mobile-menu.
 })
 export class MobileComponent implements OnInit {
     private readonly tasksFacadeService = inject(TasksFacadeService);
+    private readonly eventServiceService = inject(EventServiceService);
     private readonly userProfile = {
         name: 'Вильгельмина',
         surname: 'Шавшина',
@@ -39,6 +42,14 @@ export class MobileComponent implements OnInit {
     userTasks: ITask[] = [];
     tasksWithoutAssignee: ITask[] = [];
     activeTabIndex: number = 2;
+
+    @HostListener('window:scroll', ['$event'])
+    onWindowScroll() {
+        this.handleClick();
+    }
+    handleClick() {
+        this.eventServiceService.hideTaskPopupElements();
+    }
 
     ngOnInit(): void {
         this.tasksFacadeService

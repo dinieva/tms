@@ -11,6 +11,7 @@ import { AccordionComponent } from '../content-accordion/accordion.component';
 import { TasksFacadeService } from 'src/app/services/tasks-service/tasks-facade.service';
 import { ITask } from 'src/app/interfaces/interfaces';
 import { FilterBlockComponent } from '../filter-block/filter-block.component';
+import { EventServiceService } from 'src/app/services/event-service/event-service-.service';
 
 @Component({
     selector: 'app-content',
@@ -26,6 +27,7 @@ import { FilterBlockComponent } from '../filter-block/filter-block.component';
 })
 export class ContentComponent implements OnInit {
     private readonly tasksFacadeService = inject(TasksFacadeService);
+    private readonly eventServiceService = inject(EventServiceService);
     private readonly userProfile = {
         name: 'Вильгельмина',
         surname: 'Шавшина',
@@ -38,7 +40,11 @@ export class ContentComponent implements OnInit {
     tasksInPause: ITask[] = [];
     userTasks: ITask[] = [];
     tasksWithoutAssignee: ITask[] = [];
-    activeTabIndex: number = 2;
+    activeTabIndex = 2;
+
+    handleClick() {
+        this.eventServiceService.hideTaskPopupElements();
+    }
 
     ngOnInit(): void {
         this.tasksFacadeService

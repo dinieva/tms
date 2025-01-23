@@ -1,8 +1,12 @@
 import {
     ChangeDetectionStrategy,
     Component,
+    effect,
+    HostListener,
+    inject,
     Input,
     OnInit,
+    signal,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExecutorNameFormatPipe } from 'src/app/pipes/executor-name-format.pipe';
@@ -18,6 +22,7 @@ import {
 } from '@angular/animations';
 import { debounceTime, Subject } from 'rxjs';
 import { TaskPathComponent } from '../task-path/task-path.component';
+import { EventServiceService } from 'src/app/services/event-service/event-service-.service';
 
 @Component({
     selector: 'app-task-item',
@@ -56,12 +61,18 @@ import { TaskPathComponent } from '../task-path/task-path.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TaskItemComponent implements OnInit {
+    private readonly eventServiceService = inject(EventServiceService);
     private mouseEnterSubject = new Subject<void>();
     private mouseLeaveSubject = new Subject<void>();
     private mouseEnterSubjectHeader = new Subject<void>();
     private mouseLeaveSubjectPath = new Subject<void>();
+    private clickSubject = new Subject<void>();
 
     @Input() task!: ITask;
+    @Input() isScrolling!: boolean;
+    isMobile = false;
+    isHovered = false;
+    hideTaskPopupElements = signal<boolean>(false);
     protected buttonsBlockState: 'visible' | 'hidden' = 'hidden';
     protected taskPathState: 'open' | 'close' = 'close';
     generalButtons = [
@@ -94,33 +105,93 @@ export class TaskItemComponent implements OnInit {
         },
     ];
     taskPath: taskPath | undefined;
-
+    @HostListener('window:resize', ['$event'])
+    onResize() {
+        this.isMobile = window.innerWidth < 768;
+    }
+    @HostListener('window:scroll', ['$event'])
+    onWindowScroll(e: Event) {
+        this.isHovered = false;
+    }
     constructor() {
+        this.onResize();
+
+        effect(() => {
+            const value = this.hideTaskPopupElements();
+            if (value) {
+                this.hiddenTaskBtns();
+                this.hiddenTaskPath();
+            }
+        });
+
         this.mouseEnterSubject.pipe(debounceTime(300)).subscribe(() => {
+            this.hideTaskPopupElements.set(false);
             this.buttonsBlockState = 'visible';
         });
 
         this.mouseLeaveSubject.pipe(debounceTime(800)).subscribe(() => {
             this.buttonsBlockState = 'hidden';
+            this.hideTaskPopupElements.set(false);
+            if (this.buttonsBlockState === 'hidden') {
+                return;
+            }
         });
         this.mouseEnterSubjectHeader.pipe(debounceTime(300)).subscribe(() => {
+            this.hideTaskPopupElements.set(false);
             this.taskPathState = 'open';
         });
 
         this.mouseLeaveSubjectPath.pipe(debounceTime(800)).subscribe(() => {
             this.taskPathState = 'close';
+            this.hideTaskPopupElements.set(false);
+        });
+
+        this.clickSubject.pipe(debounceTime(300)).subscribe(() => {
+            if (this.isMobile) {
+                this.hideTaskPopupElements.set(false);
+                this.buttonsBlockState = 'visible';
+                this.taskPathState = 'open';
+            }
         });
     }
-    onMouseLeave() {
-        this.mouseLeaveSubject.next();
-        this.mouseLeaveSubjectPath.next();
-    }
-    onMouseEnter() {
-        this.mouseEnterSubject.next();
+
+    showTaskBtns() {
+        if (!this.isHovered) {
+            this.isHovered = true;
+            if (!this.isMobile) {
+                this.mouseEnterSubject.next();
+            } else {
+                return;
+            }
+        }
     }
 
     showTaskPath() {
-        this.mouseEnterSubjectHeader.next();
+        if (!this.isHovered) {
+            this.isHovered = true;
+            if (!this.isMobile) {
+                this.mouseEnterSubjectHeader.next();
+            } else {
+                return;
+            }
+        }
+    }
+
+    hiddenTaskBtns() {
+        this.buttonsBlockState = 'hidden';
+        this.isHovered = false;
+    }
+    hiddenTaskPath() {
+        this.taskPathState = 'close';
+        this.isHovered = false;
+    }
+    onClick(event: Event) {
+        event.stopPropagation();
+        if (this.isMobile) {
+            this.clickSubject.next();
+        } else {
+            return;
+        }
     }
 
     ngOnInit() {
@@ -132,5 +203,8 @@ export class TaskItemComponent implements OnInit {
                 feature: this.task.feature,
             };
         }
+        this.eventServiceService.toogleTaskPopupElements$.subscribe((val) => {
+            this.hideTaskPopupElements.set(val);
+        });
     }
 }
